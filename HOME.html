@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clube de Estudo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header Styles */
+        .header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+            position: relative;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #8B5CF6, #A855F7);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.25rem;
+        }
+
+        .logo-text {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #6B7280;
+        }
+
+        .menu-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+
+        .menu-button:hover {
+            background-color: #F3F4F6;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #7C3AED 0%, #8B5CF6 50%, #A855F7 100%);
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: white;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+        }
+
+        .hero-content .highlight {
+            color: #FCD34D;
+        }
+
+        .cta-button {
+            background: #FCD34D;
+            color: #1F2937;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-transform: uppercase;
+        }
+
+        .cta-button:hover {
+            background: #F59E0B;
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Platform Cards Section */
+        .platforms {
+            padding: 4rem 0;
+            background: #F9FAFB;
+        }
+
+        .platforms-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .platforms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .platform-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .platform-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .platform-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #8B5CF6, #A855F7);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .platform-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1F2937;
+            margin-bottom: 1rem;
+        }
+
+        .platform-card p {
+            color: #6B7280;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .platform-button {
+            background: #FCD34D;
+            color: #1F2937;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            font-size: 0.875rem;
+        }
+
+        .platform-button:hover {
+            background: #F59E0B;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #7C3AED, #8B5CF6);
+            color: white;
+            padding: 2rem 0;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.2s;
+        }
+
+        .footer-links a:hover {
+            opacity: 0.8;
+        }
+
+        .footer-copyright {
+            font-size: 0.875rem;
+            opacity: 0.8;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.2s;
+        }
+
+        .social-icon:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .platforms-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-container {
+                flex-direction: column;
+                gap: 1.5rem;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .header-container,
+            .hero-container,
+            .platforms-container,
+            .footer-container {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-icon">EC</div>
+                <div class="logo-text">ESTUDO CLUBE</div>
+            </div>
+            <button class="menu-button">
+                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>
+                    ENTRE EM NOSSO CLUBE<br>
+                    <span class="highlight">DE ESTUDO!</span>
+                </h1>
+                <button class="cta-button">CADASTRE-SE</button>
+            </div>
+            <div class="hero-image">
+                <img src="https://placehold.co/500x350?text=Students+studying+together+in+modern+workspace+with+laptops+and+books" 
+                     alt="Students studying together in modern workspace" 
+                     onerror="this.style.display='none'">
+            </div>
+        </div>
+    </section>
+
+    <!-- Platform Cards Section -->
+    <section class="platforms">
+        <div class="platforms-container">
+            <div class="platforms-grid">
+                <div class="platform-card">
+                    <div class="platform-icon">🤝</div>
+                    <h3>Plataforma Colaborativa</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, quidem.</p>
+                    <button class="platform-button">Saiba mais!</button>
+                </div>
+                
+                <div class="platform-card">
+                    <div class="platform-icon">🏆</div>
+                    <h3>Plataforma Colaborativa</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, quidem.</p>
+                    <button class="platform-button">Saiba mais!</button>
+                </div>
+                
+                <div class="platform-card">
+                    <div class="platform-icon">👥</div>
+                    <h3>Plataforma Colaborativa</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, quidem.</p>
+                    <button class="platform-button">Saiba mais!</button>
+                </div>
+                
+                <div class="platform-card">
+                    <div class="platform-icon">🎯</div>
+                    <h3>Plataforma Colaborativa</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, quidem.</p>
+                    <button class="platform-button">Saiba mais!</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="#suporte">SUPORTE</a>
+                <a href="#login">LOGIN</a>
+                <a href="#contato">CONTATE-NOS</a>
+            </div>
+            
+            <div class="footer-copyright">
+                COPYRIGHT.COM
+            </div>
+            
+            <div class="footer-social">
+                <a href="#" class="social-icon">f</a>
+                <a href="#" class="social-icon">📷</a>
+                <a href="#" class="social-icon">🐦</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
