@@ -3,9 +3,12 @@
   padding: 0;
   box-sizing: border-box;
   transition: 0.5s;
-  background-color: #522a80;
   font-family: "Trebuchet MS", Helvetica, Arial, sans-serif;
+}
 
+body {
+  background-color: #522a80;
+  overflow-x: hidden;
 }
 
 header {
@@ -19,21 +22,46 @@ header {
   margin: 20px auto;
 }
 
+/* ===== MENU LATERAL ===== */
 .nav-header {
-  display: flex;
-  background-color: #d9d9d9;
+  display: none; 
   flex-direction: column;
+  background-color: #d9d9d9;
+  border-radius: 10px;
+  box-shadow: 4px 8px 4px 8px rgba(0, 0, 0, 0.2);
   width: 22vw;
-  height: 80vw;
+  height: 50vw;
+  padding: 20px;
   z-index: 500;
-  display: none;
+  transition: 0.3s ease-in-out;
+  position: absolute;
+  top: 5px;
+  right: 0;
 }
+
 #ul-nav {
   list-style: none;
   display: flex;
   flex-direction: column;
   gap: 15px;
   z-index: 9999;
+  margin-top: 5vw;
+}
+
+#ul-nav li {
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 8px;
+  
+}
+
+#ul-nav li:hover {
+  background-color: #c0c0c0;
+}
+.li-nav a {
+  text-decoration: none;
+  color: black;
 }
 
 .logo {
@@ -57,11 +85,19 @@ header {
 .div-menu-line {
   background-color: white;
 }
+
 #div-close {
   position: absolute;
   background-color: #d9d9d9;
-  
+  right: 3vw;
+  top: 2vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 9999;
 }
+
 #close-nav {
   display: none;
   font-size: 30px;
@@ -69,6 +105,7 @@ header {
   background-color: #d9d9d9;
 }
 
+/* ===== MAIN ===== */
 main {
   width: 90vw;
   height: auto;
@@ -112,28 +149,37 @@ main {
 .title-main {
   display: flex;
   color: white;
-  font-size: 2vw;
-  background-color: #3e006a;
-  display: inline;
+  font-size: 50px;
   margin-top: 10vh;
   margin-left: 30px;
   background-color: #3e006a;
-
-  font-size: 50px;
 }
 
-#button-cadastrar {
-  padding: 20px;
+#a-cadastrar {
+  width: 15vw;
+  height: 5vw;
   flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   align-self: center;
-  border-radius: 20px;
+  text-decoration: none;
+  color: black;
+  border-radius: 40px;
   border: none;
   background: #f0ca24;
   cursor: pointer;
+  font-weight: bold;
+  font-size: 20px;
 }
-#button-cadastrar:hover {
+#a-cadastrar:hover {
   background: #f59e0b;
-  transform: translateY(-10px);
+  transform: translateY(-5px);
+}
+
+#button-cadastrar:active {
+  background: #b39929;
+  color: white;
 }
 
 #aside-message {
@@ -145,13 +191,9 @@ main {
   gap: 50px;
 }
 
-#button-cadastrar:active {
-  background: #b39929;
-  color: white;
-}
-.main-cards{
-  background-color:#3e006a ;
-  height: 15vw;
+.main-cards {
+  background-color: #3e006a;
+  height: 25vw;
 }
 
 .div-cards {
@@ -172,31 +214,39 @@ main {
   background: white;
   border-radius: 12px;
   padding: 4rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(202, 196, 196, 0.6);
   transition: transform 0.2s, box-shadow 0.2s;
+  margin: auto 0;
+  align-items: center;
+  text-align: center;
 }
 .card:hover {
   transform: translateY(-10px);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
 }
+
 .text-card {
   background-color: white;
 }
 .platform-icon {
   background-color: white;
 }
+.card-icon {
+  background-color: white;
+}
+
 .saiba-btn {
   display: flex;
   width: 7.625rem;
   height: 1.875rem;
-  padding: var(--sds-size-space-300);
+  text-decoration: none;
+  color: black;
+  font-size: 15px;
+  font-weight: bold;
   justify-content: center;
   align-items: center;
-  gap: var(--sds-size-space-200);
-  flex-shrink: 0;
   border-radius: 1.25rem;
-  border: var(--sds-size-stroke-border) solid
-    var(--sds-color-border-brand-default);
+  border: 2px solid #000;
   background: #f0ca24;
   cursor: pointer;
 }
@@ -204,23 +254,11 @@ main {
   background: #f59e0b;
   transform: scale(1.1);
 }
-.card{
 
-    margin-bottom: auto;
-    margin-top: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-.card-icon{
-    background-color: white;
-}
-#div-cards{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    background-color: #3e006a;
-
+#div-cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background-color: #3e006a;
 }
